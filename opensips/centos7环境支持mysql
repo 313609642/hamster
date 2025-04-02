@@ -17,6 +17,7 @@ vim /etc/yum.repos.d/mysql-community.repo
 改变默认安装的mysql版本。比如要安装5.6版本，将5.7源的enabled=1改成enabled=0。然后再将5.6源的enabled=0改成enabled=1即可。
 备注：enabled=1表示即将要安装的mysql版本，这个文件也可以不修改，默认安装mysql最高版本
 
+
 安装MySQL
 这一步才是真正安装mysql：
 yum install mysql-community-server
