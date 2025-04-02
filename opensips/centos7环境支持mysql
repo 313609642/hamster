@@ -1,0 +1,30 @@
+
+wget安装MySQL
+1. wget的安装与使用
+安装wget：
+yum -y install wget
+检查是否安装成功：
+rpm -qa|grep "wget"
+2. MySQL安装
+下载mysql源安装包：
+wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+安装mysql源：
+yum localinstall mysql57-community-release-el7-8.noarch.rpm
+检查mysql源是否安装成功：
+yum repolist enabled | grep "mysql.*-community.*"
+修改yum源 【可跳过】：
+vim /etc/yum.repos.d/mysql-community.repo
+改变默认安装的mysql版本。比如要安装5.6版本，将5.7源的enabled=1改成enabled=0。然后再将5.6源的enabled=0改成enabled=1即可。
+备注：enabled=1表示即将要安装的mysql版本，这个文件也可以不修改，默认安装mysql最高版本
+
+安装MySQL
+这一步才是真正安装mysql：
+yum install mysql-community-server
+启动MySQL服务并设置开机启动
+#启动服务
+systemctl start mysqld
+#设置开机自启
+systemctl enable mysqld
+systemctl daemon-reload
+————————————————
+原文链接：https://blog.csdn.net/korry24/article/details/118079490
