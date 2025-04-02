@@ -1,0 +1,32 @@
+opensips3.0新增工具opensips-cli，我测试的服务器系统是centos7.5，
+
+
+
+但是按照官方文档安装时碰到的问题总结如下：
+
+1. sudo yum install python36 python36-pip； （正常安装，没有碰到问题）
+
+2. sudo pip3 install mysqlclient sqlalchemy sqlalchemy-utils
+
+      在安装mysqlclient时碰到两个错误，如下：
+
+       2.1==》提示“my_config.h：没有那个文件或目录”，解决办法为： yum install mysql-devel
+
+       2.2==》提示fatal error: Python.h: 没有那个文件或目录，解决办法为：yum install python36-devel-3.6.8-1.el7.x86_64
+
+        2.2 问题可以执行yum whatprovides python3* |grep dev命令来找寻合适的库，对于每个Python版本都有对应的python-dev包，所以，此处需要找python3.6相关的。
+
+3. git clone https://github.com/opensips/opensips-cli  /opt/gjj/opensips-cli ；（正常下载，没有问题）
+
+4. cd  /opt/gjj/opensips-cli；
+
+5. sudo python3 setup.py install clean ；（正常执行，没有问题）
+
+ 
+
+至此，opensips-cli安装完成，可在命令行执行opensips-cli进入交互程序：
+
+
+————————————————
+                        
+原文链接：https://blog.csdn.net/Ronny2016/article/details/93987695
